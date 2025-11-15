@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DBSQLite.MainPage">
+
+    <StackLayout Padding="10" Spacing="15" BackgroundColor="White">
+        <Frame BackgroundColor="#000000" Padding="20" CornerRadius="15" HasShadow="True">
+            <Label Text="Dalliat" HorizontalTextAlignment="Center" TextColor="White" FontSize="28" FontAttributes="bold"/>
+        </Frame>
+        <Entry x:Name="txtVentaId" IsVisible="false"/>
+        <Frame Padding="15" BackgroundColor="White" CornerRadius="10" HasShadow="True">
+            <StackLayout Spacing="10">
+                <Entry x:Name="txtApellidoVendedor" Placeholder="Apellido del vendedor" PlaceholderColor="#000000" TextColor="#000000" BackgroundColor="#FFFFFF"/>
+                <Entry x:Name="txtNombreVendedor" Placeholder="Nombre vendedor" PlaceholderColor="#000000" TextColor="#000000" BackgroundColor="#FFFFFF"/>
+                <Entry x:Name="txtProductoVendido" Placeholder="Producto vendido" PlaceholderColor="#000000" TextColor="#000000" BackgroundColor="#FFFFFF"/>
+                <Entry x:Name="txtCantidadVendida" Placeholder="Cantidad vendida" Keyboard="Numeric" PlaceholderColor="#000000" TextColor="#000000" BackgroundColor="#FFFFFF"/>
+                <DatePicker x:Name="dpFechaVenta" />
+            </StackLayout>
+        </Frame>
+
+        <Button x:Name="btnRegistrar" Text="Registrar Venta" Clicked="btnRegistrar_Clicked" BackgroundColor="#f0a637" TextColor="#000000" CornerRadius="10" FontAttributes="bold" HeightRequest="50"/>
+        <Button x:Name="btnActualizar" Text="Actualizar Venta" Clicked="btnActualizar_Clicked" IsVisible="false" BackgroundColor="#000000" TextColor="#FFFFFF" CornerRadius="10" FontAttributes="bold" HeightRequest="50"/>
+        <Button x:Name="btnEliminar" Text="Eliminar Venta" Clicked="btnEliminar_Clicked" IsVisible="false" BackgroundColor="#000000" TextColor="#FFFFFF" CornerRadius="10" FontAttributes="bold" HeightRequest="50"/>
+        <ListView x:Name="lstVentas" ItemSelected="lstVentas_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding ApellidoVendedor}" Grid.Row="0" Grid.Column="0" TextColor="#000000" FontSize="13"/>
+                            <Label Text="{Binding NombreVendedor}" Grid.Row="0" Grid.Column="1" TextColor="#000000" FontSize="13"/>
+                            <Label Text="{Binding ProductoVendido}" Grid.Row="0" Grid.Column="2" TextColor="#000000" FontSize="13"/>
+                            <Label Text="{Binding CantidadVendida}" Grid.Row="0" Grid.Column="3" TextColor="#000000" FontAttributes="Bold" FontSize="14"/>
+                            <Label Text="{Binding FechaVenta, StringFormat='{0:yyyy-MM-dd}'}" Grid.Row="0" Grid.Column="4" TextColor="#f0a637" FontSize="12"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
+
